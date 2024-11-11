@@ -1,37 +1,35 @@
 [![CI](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml)
-## Template for Python projects with RUFF linter
 
-![1 15_rust_built_python_tools](https://github.com/nogibjj/python-ruff-template/assets/58792/db5f7bda-a977-4c67-acbe-a70fe034fbdf)
+# PySpark Data Processing Project
+## Project Overview
+This project focuses on utilizing PySpark for efficient data processing on the US_birth.csv dataset. The primary objectives are to incorporate Spark SQL queries, perform data transformations, and generate a summary of descriptive statistics. The process involves extracting, transforming, and querying the dataset, followed by creating a formatted summary report.
+
+## Dataset
+We use the US_birth.csv dataset, which contains data on U.S. births. This dataset will be processed in a PySpark environment to demonstrate Spark's powerful data processing capabilities on large-scale data.
+
+## Getting Started
+### Environment Setup
+1. Open Codespaces or your preferred IDE.
+2. Wait for the environment setup to complete.
+
+## Output
+Spark Output Data: Generated from PySpark transformations.
+Summary Markdown File: A summary file containing key statistics and insights from the dataset.
+## Code Formatting and Linting
+This project follows code quality standards for readability and maintenance.
 
 
-
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
-
-Things included are:
-
-* `Makefile`
-
-* `Pytest`
-
-* `pandas`
-
-* `Ruff`:  
-
-Run `make lint` which runs `ruff check`.  You can find out more info on [Ruff here](https://github.com/astral-sh/ruff).
-
-* `Dockerfile`
-
-* `GitHub copilot`
-
-* `jupyter` and `ipython` 
-
-* A base set of libraries for devops and web
-
-* `githubactions`
-
+## Process Overview
+Data Extraction: Extracts the dataset using the extract function.
+Spark Session: Initializes a Spark session via start_spark.
+Data Loading: Loads the dataset into a Spark DataFrame with load_data.
+Descriptive Statistics: Generates summary statistics using describe.
+Query Execution: Executes a SQL query on the dataset via query.
+Data Transformation: Performs additional transformations with example_transform.
+End Spark Session: Closes the Spark session with end_spark.
 ## References
-
-![1 1-function-essence-of-programming](https://github.com/nogibjj/python-ruff-template/assets/58792/f7f33cd3-cff5-4014-98ea-09b6a29c7557)
-
-
+PySpark Template: https://github.com/nogibjj/python-ruff-template
+Original Dataset Source: https://github.com/fivethirtyeight/data/tree/master/daily-show-guests
+## GitHub Actions
+This project includes GitHub Actions for CI/CD, automatically running tests and code formatting checks on each push.
 
