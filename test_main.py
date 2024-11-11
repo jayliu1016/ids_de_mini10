@@ -1,10 +1,60 @@
 """
-Test goes here
-
+Test suite for data processing functions.
 """
 
-from mylib.calculator import add
+import os
+import pytest
+from mylib.lib import (
+    extract,
+    load_data,
+    describe,
+    query,
+    example_transform,
+    start_spark,
+    end_spark,
+)
 
 
-def test_add():
-    assert add(1, 2) == 3
+@pytest.fixture(scope="module")
+def spark():
+    spark = start_spark("TestApp")
+    yield spark
+    end_spark(spark)
+
+
+def test_extract():
+    file_path = extract()
+    assert os.path.exists(file_path) is True
+
+
+def test_load_data(spark):
+    df = load_data(spark)
+    assert df is not None
+
+
+def test_describe(spark):
+    df = load_data(spark)
+    result = describe(df)
+    assert result is None
+
+
+def test_query(spark):
+    df = load_data(spark)
+    result = query(
+        spark, df, "SELECT * FROM USBirthData WHERE year = 2000", "USBirthData"
+    )
+    assert result is None
+
+
+def test_example_transform(spark):
+    df = load_data(spark)
+    result = example_transform(df)
+    assert result is None
+
+
+if __name__ == "__main__":
+    test_extract()
+    test_load_data(spark)
+    test_describe(spark)
+    test_query(spark)
+    test_example_transform(spark)
