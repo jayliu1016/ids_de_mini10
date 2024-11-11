@@ -32,4 +32,5 @@ PySpark Template: https://github.com/nogibjj/python-ruff-template
 Original Dataset Source: https://github.com/fivethirtyeight/data/tree/master/daily-show-guests
 ## GitHub Actions
 This project includes GitHub Actions for CI/CD, automatically running tests and code formatting checks on each push.
+echo "Trigger CI/CD workflow" >> README.md
 
