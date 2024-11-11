@@ -16,21 +16,32 @@ from mylib.lib import (
 def main():
     # Extract data
     extract()
+
     # Start Spark session
     spark = start_spark("USBirthDataProcessing")
+
     # Load data into DataFrame
     df = load_data(spark)
-    # Generate descriptive statistics
+
+    # Example metrics
     describe(df)
-    # Query example: Count births by year
+
+    # Query the data
     query(
         spark,
         df,
-        "SELECT year, COUNT(*) AS birth_count FROM USBirthData GROUP BY year ORDER BY year",
+        (
+            "SELECT year, COUNT(*) AS birth_count "
+            "FROM USBirthData "
+            "GROUP BY year "
+            "ORDER BY year"
+        ),
         "USBirthData",
     )
+
     # Example transformation
     example_transform(df)
+
     # End Spark session
     end_spark(spark)
 
